@@ -7,8 +7,10 @@ menuHamburger.addEventListener('click', () => {
     navLinks.classList.toggle('mobile-menu');
     if (navLinks.classList.contains('mobile-menu')) {
         body.style.overflowY = "hidden";
+        return menuHamburger.setAttribute('src', 'img/' + 'X.svg');
     } else {
         body.style.overflowY = "scroll";
+        return menuHamburger.setAttribute('src', 'img/' + 'hamburger.svg');
     }
 });
 
