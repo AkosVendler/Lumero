@@ -1,7 +1,7 @@
 const menuHamburger = document.querySelector("#btn");
 const navLinks = document.querySelector(".nav-links");
 const body = document.querySelector("body");
-const list = document.querySelector(".nav-links a");
+const links = document.querySelectorAll(".nav-links a");
 
 menuHamburger.addEventListener('click', () => {
     navLinks.classList.toggle('mobile-menu');
@@ -14,9 +14,12 @@ menuHamburger.addEventListener('click', () => {
     }
 });
 
-list.addEventListener('click', () => {
-    body.style.overflowY = "scroll";
-    navLinks.classList.remove('mobile-menu');
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        body.style.overflowY = "scroll";
+        navLinks.classList.remove('mobile-menu');
+        return menuHamburger.setAttribute('src', 'img/' + 'hamburger.svg');
+    });
 });
 
 
@@ -24,6 +27,8 @@ list.addEventListener('click', () => {
 
 const right = document.querySelectorAll(".from-right");
 const show = document.querySelectorAll(".show");
+const show1 = document.querySelectorAll(".show1");
+const show2 = document.querySelectorAll(".show2");
 const left = document.querySelectorAll(".from-left")
 
 
@@ -55,6 +60,14 @@ right.forEach(slider => {
 
 show.forEach(show => {
     appearOnScroll.observe(show);
+});
+
+show1.forEach(show1 => {
+    appearOnScroll.observe(show1);
+});
+
+show2.forEach(show2 => {
+    appearOnScroll.observe(show2);
 });
 
 left.forEach(left => {
@@ -110,7 +123,109 @@ document.addEventListener("mousemove", e => {
 });
 
 
+//naptar
+var monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
+    var currentDate = new Date();
+    var currentMonth = currentDate.getMonth();
+    var currentYear = currentDate.getFullYear();
+    var currentDay = currentDate.getDate();
+    function generateCalendar() {
+      var calendarBody = document.getElementById("calendarBody");
+      var currentMonthText = document.getElementById("currentMonth");
+      var currentDayText = document.getElementById("currentDay");
 
+      currentMonthText.innerHTML = monthNames[currentMonth] + " ";
+      currentDayText.innerHTML =  currentDay; 
+      // Clear existing calendar days
+      calendarBody.innerHTML = "";
+
+      
+      var firstDay = new Date(currentYear, currentMonth, 1);
+      var lastDay = new Date(currentYear, currentMonth + 1, 0);
+    
+      var startDate = new Date(firstDay);
+      startDate.setDate(startDate.getDate() - (startDate.getDay() + 6) % 7); // Helyesítés itt
+    
+      var endDate = new Date(lastDay);
+      endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
+    
+      var currentDate = new Date(startDate);
+      var today = new Date();  
+      // Generate calendar days
+      while (currentDate <= endDate) {
+        var row = document.createElement("tr");
+    
+        for (var i = 0; i < 7; i++) {
+          var cell = document.createElement("td");
+          cell.classList.add("day")
+    
+          if (currentDate.getMonth() === currentMonth) {
+            cell.innerHTML = currentDate.getDate();
+    
+            if (
+              currentDate.getDate() === today.getDate() && // Compare day
+              currentDate.getMonth() === today.getMonth() && // Compare month
+              currentDate.getFullYear() === today.getFullYear() // Compare year
+            ) {
+              //cell.classList.add("red-day"); // Apply the "red" class
+              cell.style.position = "relative";
+              cell.style.display = "flex";
+              cell.style.justifyContent = "center";
+              cell.innerHTML = `<div class="current-day">${currentDate.getDate()}</div>`;
+            }
+          }
+          
+          cell.addEventListener("click", function() {
+            this.style.position = "relative";
+            this.style.display = "flex";
+            this.style.justifyContent = "center";
+            this.style.flexDirection = "row";
+            this.innerHTML = `<div class="reserved">${this.innerHTML}</div>`;
+          });
+          
+          // Add event listener to change background color on hover
+      cell.addEventListener("mouseover", function() {
+        if (!this.classList.contains("current-day")) {
+          this.style.backgroundColor = "#0A0A0A";
+          this.style.borderRadius = "50%";
+        }
+      });
+      
+      // Add event listener to revert background color on mouse leave
+      cell.addEventListener("mouseout", function() {
+        if (!this.classList.contains("current-day")) {
+          this.style.backgroundColor = "";
+        }
+      });
+
+          row.appendChild(cell);
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+    
+        calendarBody.appendChild(row);
+      }
+    }
+
+    function prevMonth() {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      generateCalendar();
+    }
+
+    function nextMonth() {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      generateCalendar();
+    }
+
+    // Generate the initial calendar
+    generateCalendar();
 
 
 

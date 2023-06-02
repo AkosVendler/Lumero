@@ -27,7 +27,9 @@ html {
 
 body {
     background-color: #1C1C1C;
-    margin: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 0;
     margin-top: 35px;
     cursor: none;
 }
@@ -96,39 +98,81 @@ body {
 }
 
 .landing {
-    width: 100%;
+    margin-top: 20px;
     display: grid;
-    place-content: center;
-    margin-top: 80px;
-    justify-items: center;
+    place-items: center;
+    width: 100%;
 }
 
-.landing h1 {
-    color: var(--fg);
+.landing img {
+    z-index: 1;
+}
+
+.landing-content {
+    width: 600px;
+    z-index: 2;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+
+.landing {
+    color:  var(--fg);
+    font-size: 100px;
     font-family: Abril Fatface;
     font-weight: 400;
-    font-size: 100px;
-    margin: 0;
-    line-height: 100px;
 }
 
-.landing span:nth-child(1) {
-    padding-left: 300px;
+.landing .green {
+    color: var(--span);
+   
 }
 
 .landing .dot {
-    font-size: 173px;
+    line-height: 10px;
+    font-size: 200px;
 }
 
-#green {
-    color: var(--span);
+@keyframes text {
+    0% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
-.landing-img {
-    padding-top: 90px;
-    width: 65%;
+.landing-btn {
     position: relative;
-    padding-bottom: 130px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 400px;
+    height: 80px;
+    color: var(--fg);
+    border: solid 5px var(--span);
+    font-size: 38px;
+    font-weight: 200;
+    transition: all .3s ease-in-out;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.landing-btn::before {
+    content: "";
+    background-color: var(--span);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 400ms ease-in-out;
+    display: inline-block;
+}
+  
+.landing-btn:hover::before {
+    width: 100%;
 }
 
 .main {
@@ -142,7 +186,7 @@ body {
     width: 100%;
     display: grid;
     place-content: center;
-    margin-top: 80px;
+    margin-top: 100px;
     justify-items: center;
 }
 
@@ -176,7 +220,32 @@ body {
     transition: transform 500ms ease-in, opacity 600ms ease-in;
 }
 
+
 .show.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show1 {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: transform 2.1s ease-in, opacity 2.1s ease;
+}
+
+
+.show1.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show2 {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: transform 2.4ms ease-in, opacity 2.4s ease;
+}
+
+
+.show2.appear {
     opacity: 1;
     transform: translateY(0);
 }
@@ -300,6 +369,165 @@ body {
     transition: transform ease-in 300ms;
 }
 
+.section-three {
+    padding-bottom: 130px;
+}
+
+.section-three span {
+    width: 73%;
+    margin-right: 10px;
+}
+
+.section-three-text {
+    color: var(--fg);
+    font-size: 35px;
+    width: 400px;
+    margin-left: 120px;
+    font-family: 'Poppins';
+}
+
+.section-three-map {
+    position: relative;
+    left: 28%;
+    bottom: 80px;
+}
+
+/*calendar*/
+.calendar {
+    display: grid;
+    place-content: center;
+    margin-bottom: 133px;
+}
+
+.calendar-data {
+    width: 1400px;
+    height: 950px;
+    background-color: #0D0D0D;
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.calendar-title {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+
+tr {
+    display: flex;
+    justify-content: center;
+  }
+  
+td {
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weekday {
+    color: var(--fg);
+    font-size: 45px;
+}
+
+.month {
+    font-weight: 400;
+    font-size: 80px;
+    color: var(--fg);
+}
+
+#currentDay {
+    color: var(--fg);
+    font-size: 130px;
+    margin: 0;
+    width: fit-content;
+}
+
+.red {
+    color: #E03131;
+}
+
+.current-day {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #E03131;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.day:hover {
+    background-color: black;
+    border-radius: 50%;
+  }
+
+.days-data {
+    display: grid;
+    place-items: center;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1400px;
+}
+
+  .day {
+    content: "";
+    font-size: 40px;
+    color: var(--fg);
+  }
+
+.reserved {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #3D643F;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.arrow {
+    content: "";
+}  
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-top: var(--fg) 2px solid;
+    border-right: var(--fg) 2px solid;
+}
+
+footer .logo {
+    padding-top: 20px;
+    color: var(--fg);
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--fg);
+}
+
+
 @media only screen and (max-width: 1400px) {
     .landing h1 {
         color: var(--fg);
@@ -417,6 +645,28 @@ body {
     .landing {
         padding-top: 50px;
         margin-top: 0;
+        display: grid;
+        place-content: center;
+    }
+
+    .landing-content {
+        justify-content: center;
+        font-size: 45px;
+        width: 450px;
+        text-align: center;
+    }
+
+    span:nth-child(1) {
+        padding-left: 0px;
+        font-size: 50px;
+    }
+
+    span:nth-child(3) {
+        text-align: center;
+    }
+
+    .landing-btn {
+        margin-top: 80px;
     }
 
     .landing h1{
@@ -526,6 +776,98 @@ body {
 
     .arrows img:nth-child(2) {
         margin-left: 10%;
+    }
+
+    .section-three-text {  
+        color: var(--fg);
+        font-size: 20px;
+        width: 309px;
+        margin-left: 32px;
+        font-family: 'Poppins';
+    }
+
+    .section-three-map {
+        position: relative;
+        left: 28%;
+        bottom: 1px;
+        width: 70%;
+    }
+
+    .calendar-data {
+        width: 482px;
+        height: 518px;
+        background-color: #0D0D0D;
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    
+    .month {
+        font-weight: 400;
+        font-size: 20px;
+        color: var(--fg);
+    }
+
+    .calendar-data .arrow {
+        width: 10%;
+    }
+
+    .calendar-title {
+        display: flex;
+        gap: 0;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #currentDay {
+        color: var(--fg);
+        font-size: 50px;
+        margin: 0;
+        width: fit-content;
+    }
+
+    table {
+        margin-top: 0;
+    }
+
+    td {
+        margin: 20px;
+        width: 25px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weekday {
+        font-size: 20px;
+    }
+
+    .day {
+        font-size: 15px;
+    }
+
+    .current-day {
+        width: 30px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: #E03131;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .reserved {
+        width: 30px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: #3D643F;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 }
 

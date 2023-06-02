@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Lumero | Meeting room</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -21,8 +22,11 @@
     </nav>
     <div class="main">
         <section class="landing">
-            <h1>Üdvözlünk a <br><span><span id="green">Lumero</span> weboldalán<span class="dot">.</span></span></h1>
-            <img class="landing-img" src="./img/landing.png">
+            <div class="landing-content">
+                <span class="show2">Üdvözlünk a</span> <span class="green show1">Lumero</span> <span class="show">weboldalán<span class="dot">.</span></span>
+                <button class="landing-btn show">Foglalj Most!</button>
+            </div>
+            <img src="./img/landing2.png">
         </section>
         <section class="section-one" id="section-one">
             <h1>A meeting <br><span> room alaprajza</span></h1>
@@ -48,7 +52,48 @@
                 </div>
             </div>
         </section>
+        <section id="section-three" class="section-three">
+            <header class="section-two-header">
+                <span class="line2"></span>
+                <h1>Térkép</h1>
+            </header>
+            <p class="section-three-text">
+                Lorem ipsum dolor sit 
+                amet consectetur. Eu 
+                augue felis dictum 
+                urna at sit arcu 
+                consectetur. 
+            </p>
+            <img class="section-three-map" src="./img/Mapsicle Map.png">
+        </section>
+        <section class="calendar">
+            <div class="calendar-data">
+                <div class="calendar-title">
+                    <div class="month" id="currentMonth"></div>
+                    <img class="arrow" onclick="prevMonth()" src="./img/left-arrow.svg">
+                    <img class="arrow" onclick="nextMonth()" src="./img/right-arrow.svg">
+                    <div id="currentDay"></div>
+                </div>
+                <table align="center">
+                    <thead>
+                      <tr>
+                        <td class="weekday">H</td>
+                        <td class="weekday">K</td>
+                        <td class="weekday">SZ</td>
+                        <td class="weekday">CS</td>
+                        <td class="weekday">P</td>
+                        <td class="weekday red">SZ</td>
+                        <td class="weekday red">V</td>
+                      </tr>
+                    </thead>
+                    <tbody id="calendarBody"></tbody>
+                  </table>
+            </div>
+        </section>
     </div>
+    <footer>
+        <div id="footer-logo" class="logo"><a href="">Lumero</a></div>    
+    </footer>
     <script src="./app.js"></script>
 </body>
 </html>
