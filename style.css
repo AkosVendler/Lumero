@@ -594,6 +594,10 @@ footer a {
         overflow-x: hidden;
     }
 
+    #cursor {
+        display: none;
+    }
+
     .navbar {
         width: 100%;
     }
@@ -645,15 +649,15 @@ footer a {
     .landing {
         padding-top: 50px;
         margin-top: 0;
-        display: grid;
-        place-content: center;
     }
 
     .landing-content {
-        justify-content: center;
         font-size: 45px;
-        width: 450px;
+        width: 350px;
         text-align: center;
+        position: absolute;
+        left: 7%;
+        top: 40%;
     }
 
     span:nth-child(1) {
@@ -667,14 +671,12 @@ footer a {
 
     .landing-btn {
         margin-top: 80px;
-    }
-
-    .landing h1{
+        width: 300px;
         font-size: 30px;
     }
 
     .landing span:nth-child(1) {
-        padding-left: 30px;
+        padding-left: 0px;
     }
 
     .landing .dot {
@@ -794,8 +796,8 @@ footer a {
     }
 
     .calendar-data {
-        width: 482px;
-        height: 518px;
+        width: 353px;
+        height: 409px;
         background-color: #0D0D0D;
         text-align: center;
         font-family: 'Poppins';
@@ -837,13 +839,14 @@ footer a {
         justify-content: center;
         align-items: center;
     }
-
     .weekday {
-        font-size: 20px;
+        font-size: 25px;
+        margin: 10px;
     }
 
     .day {
         font-size: 15px;
+        margin: 10px;
     }
 
     .current-day {
