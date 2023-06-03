@@ -22,6 +22,10 @@ links.forEach(link => {
     });
 });
 
+function scrollToElement() {
+  var elem = document.getElementById("calendar");
+  elem.scrollIntoView({ behavior: 'smooth' });
+}
 
 //parallax
 
