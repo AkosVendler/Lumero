@@ -573,12 +573,8 @@ header {
         line-height: 40px;
     }
 
-    .landing span:nth-child(1) {
-        padding-left: 150px;
-    }
-    
     .landing .dot {
-        font-size: 100px;
+        font-size: 180px;
     }
 
     .section-one h1{
@@ -618,6 +614,16 @@ header {
     }
     .section-two-descipt p {
         margin-bottom: 100px;
+    }
+
+    .section-three-map {
+        left: 35%;
+        bottom: 75px;
+    }
+
+    #map {
+        width: 780px;
+        height: 480px;
     }
 }
 
