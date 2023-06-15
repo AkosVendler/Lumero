@@ -32,6 +32,7 @@ body {
     margin-bottom: 0;
     margin-top: 35px;
     cursor: none;
+    overflow-x: hidden;
 }
 
 #cursor {
@@ -393,6 +394,11 @@ body {
     bottom: 80px;
 }
 
+#map {
+    width: 950px;
+    height: 650px;
+}
+
 /*calendar*/
 .calendar {
     display: grid;
@@ -508,6 +514,27 @@ td {
     content: "";
 }  
 
+.reserved-dates {
+    position: absolute;
+    width: 232px;
+    height: 242px;
+    background-color: var(--fg);
+    border-radius: 14px;
+    display: none;
+}
+
+.reserved-dates::after {
+    position: absolute;
+    bottom: 10px;
+    top: -12px;
+    height: 30px;
+    width: 30px;
+    content: "";
+    border-radius: 5px;
+    background: var(--fg);
+    transform: translateX(-50%) rotate(45deg);
+}
+
 footer {
     position: relative;
     width: 100%;
@@ -528,6 +555,13 @@ footer a {
     color: var(--fg);
 }
 
+header {
+    display: none;
+}
+
+.header {
+    display: none;
+}
 
 @media only screen and (max-width: 1400px) {
     .landing h1 {
@@ -790,10 +824,17 @@ footer a {
     }
 
     .section-three-map {
-        position: relative;
-        left: 28%;
-        bottom: 1px;
         width: 70%;
+        position: relative;
+        left: 35px;
+        top: 10px;
+        cursor: none;
+    }
+
+    #map {
+        cursor: none;
+        width: 300px;
+        height: 200px;
     }
 
     .calendar-data {

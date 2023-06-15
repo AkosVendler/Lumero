@@ -7,8 +7,11 @@
     <title>Lumero | Meeting room</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://apis.google.com/js/api.js"></script>
 </head>
-<body>
+<body onload="onload()">
     <div id="cursor"></div>
     <nav class="navbar">
         <div class="logo"><a href="">Lumero</a></div>
@@ -24,7 +27,7 @@
         <section class="landing">
             <div class="landing-content">
                 <span class="show2">Üdvözlünk a</span> <span class="green show1">Lumero</span> <span class="show">weboldalán<span class="dot">.</span></span>
-                <button onclick="scrollToElement()" class="landing-btn show">Foglalj Most!</button>
+                <a href="https://asd.booked4.us/public/"><button class="landing-btn show">Foglalj Most!</button></a>
             </div>
             <img src="./img/landing2.png">
         </section>
@@ -64,33 +67,39 @@
                 urna at sit arcu 
                 consectetur. 
             </p>
-            <img class="section-three-map" src="./img/Mapsicle Map.png">
-        </section>
-        <section id="calendar" class="calendar">
-            <div class="calendar-data">
-                <div class="calendar-title">
-                    <div class="month" id="currentMonth"></div>
-                    <img class="arrow" onclick="prevMonth()" src="./img/left-arrow.svg">
-                    <img class="arrow" onclick="nextMonth()" src="./img/right-arrow.svg">
-                    <div id="currentDay"></div>
-                </div>
-                <table align="center">
-                    <thead>
-                      <tr>
-                        <td class="weekday">H</td>
-                        <td class="weekday">K</td>
-                        <td class="weekday">SZ</td>
-                        <td class="weekday">CS</td>
-                        <td class="weekday">P</td>
-                        <td class="weekday red">SZ</td>
-                        <td class="weekday red">V</td>
-                      </tr>
-                    </thead>
-                    <tbody id="calendarBody"></tbody>
-                  </table>
+            <div class="section-three-map">
+            <div id='map'></div>
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoidmVuZGxlciIsImEiOiJja2s3YWQ5ZnIwYXF6MnZtaGh6M2huY3M0In0.BoPlxvqZNWCfAAr8oyBq6A';
+                const map = new mapboxgl.Map({
+                    container: 'map', // container ID
+                    style: 'mapbox://styles/vendler/clix5e02y017501r1ae0jaoha', // style URL
+                    center: [20.785538, 48.105929], // starting position [lng, lat]
+                    zoom: 19.2, // starting zoom
+                    language: 'Hungarian',
+                });
+            
+                new mapboxgl.Marker({
+                    color: '#3D643F',
+                    scale: 1.2
+                })
+                    .setLngLat([20.785846, 48.105995])
+                    .addTo(map);
+            
+                map.on('load', () => {
+                    map.setFog({});
+                });
+                
+                if (document.documentElement.clientWidth < 600) {
+                    map.setZoom(17);
+                } else {
+                    map.setZoom(17.5);
+                };
+            </script>
             </div>
+            
         </section>
-    </div>
+        
     <footer>
         <div id="footer-logo" class="logo"><a href="">Lumero</a></div>    
     </footer>

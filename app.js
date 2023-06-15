@@ -128,7 +128,7 @@ document.addEventListener("mousemove", e => {
 
 
 //naptar
-var monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
+/*var monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();
     var currentYear = currentDate.getFullYear();
@@ -158,11 +158,9 @@ var monthNames = ["Január", "Február", "Március", "Április", "Május", "Jún
       // Generate calendar days
       while (currentDate <= endDate) {
         var row = document.createElement("tr");
-    
         for (var i = 0; i < 7; i++) {
           var cell = document.createElement("td");
-          cell.classList.add("day")
-    
+          cell.classList.add("day");
           if (currentDate.getMonth() === currentMonth) {
             cell.innerHTML = currentDate.getDate();
     
@@ -230,6 +228,26 @@ var monthNames = ["Január", "Február", "Március", "Április", "Május", "Jún
 
     // Generate the initial calendar
     generateCalendar();
+*/
+
+function onload() {
+  /*var textfield = document.getElementById("reserved-date");
+  var date = prompt("Foglalj egy időpontot!");
+  console.log(date);
+  if (date === null) {
+    textfield.innerHTML = 'Nincs foglalt dátum';
+  } else {
+    textfield.innerHTML = date;
+  }
+*/
+}
+
+
+
+
+
+
+
 
 
 
