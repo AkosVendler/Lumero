@@ -19,7 +19,7 @@
             <li><a href="#section-one">Alaprajz</a></li>
             <li><a href="#section-two">Galéria</a></li>
             <li><a href="#section-three">Térkép</a></li>
-            <li><a href="#section-four">Kapcsolat</a></li>
+            <li><a href="#footer">Kapcsolat</a></li>
         </ul>
         <div class="hamburger"><img id="btn" src="./img/hamburger.svg"></div>
     </nav>
@@ -60,15 +60,15 @@
                 <span class="line2"></span>
                 <h1>Térkép</h1>
             </header>
-            <p class="section-three-text show">
+            <p class="section-three-text from-left">
                 Lorem ipsum dolor sit 
                 amet consectetur. Eu 
                 augue felis dictum 
                 urna at sit arcu 
                 consectetur. 
             </p>
-            <div class="section-three-map show">
-            <div id='map'></div>
+            <div class="section-three-map">
+            <div id='map' class="show"></div>
             <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoidmVuZGxlciIsImEiOiJja2s3YWQ5ZnIwYXF6MnZtaGh6M2huY3M0In0.BoPlxvqZNWCfAAr8oyBq6A';
                 const map = new mapboxgl.Map({
@@ -99,9 +99,20 @@
             </div>
             
         </section>
-        
-    <footer>
-        <div id="footer-logo" class="logo"><a href="">Lumero</a></div>    
+    <div class="gotop show" id="gotop" onclick="goTop()"></div>
+    </div>    
+    <footer id="footer">
+        <div class="footer-title"><span class="line"></span><h1>Kapcsolat</h1><span class="line"></span></div>
+        <div class="footer-main">
+            <div class="footer-left">
+                <div class="flx"><span class="phone"></span><h2>+36 000 0000</h2></div>
+                <div class="flx"><span class="email"></span><h2>pelda@gmail.com</h2></div>
+            </div>
+            <div class="footer-right">
+                <div class="flx"><span class="insta"></span><h2>Kövess minket Instagramon is!</h2></div>
+            </div>
+        </div>
+        <h3 class="copy"><span>&copy;</span>copyright. Minden jog fenntartva.</h3>
     </footer>
     <script src="./app.js"></script>
 </body>

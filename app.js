@@ -127,6 +127,30 @@ document.addEventListener("mousemove", e => {
 });
 
 
+//gotopbtn
+// Get a reference to the "go top" button element
+function goTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Optionally, you can animate the scroll
+  });
+}
+
+const goTopBtn = document.getElementById('gotop');
+
+window.addEventListener('scroll', function() {
+  // Check the vertical scroll position
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Show or hide the button based on the scroll position
+  if (scrollY > 100) {
+    goTopBtn.style.display = 'block';
+  } else {
+    goTopBtn.style.display = 'none';
+  }
+});
+
+
 //naptar
 /*var monthNames = ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"];
     var currentDate = new Date();

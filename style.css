@@ -399,168 +399,121 @@ body {
     height: 650px;
 }
 
-/*calendar*/
-.calendar {
-    display: grid;
-    place-content: center;
-    margin-bottom: 133px;
+.gotop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: var(--span);
+    color: #fff;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    float: right;
+    border-radius: 50%;
+    background-image: url(./img/up-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: none;
+    background-size: 40%;
+    transition: all 0,9s;
+    display: none;
 }
 
-.calendar-data {
-    width: 1400px;
-    height: 950px;
-    background-color: #0D0D0D;
-    text-align: center;
-    font-family: 'Poppins';
+.gotop:hover {
+    transform: scale(1.05) translateY(-10px);
 }
 
-.calendar-title {
+.footer-title {
     display: flex;
-    justify-content: center;
-    gap: 200px;
     align-items: center;
-}
-
-table {
-    width: 100%;
-    margin-top: 50px;
-    border-collapse: collapse;
-}
-
-tr {
-    display: flex;
     justify-content: center;
-  }
-  
-td {
-    margin: 20px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-bottom: 100px;
 }
 
-.weekday {
-    color: var(--fg);
-    font-size: 45px;
-}
-
-.month {
+.footer-title h1 {
+    font-size: 100px;
+    font-family: 'Abril Fatface';
     font-weight: 400;
-    font-size: 80px;
     color: var(--fg);
-}
-
-#currentDay {
-    color: var(--fg);
-    font-size: 130px;
-    margin: 0;
-    width: fit-content;
-}
-
-.red {
-    color: #E03131;
-}
-
-.current-day {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #E03131;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.day:hover {
-    background-color: black;
-    border-radius: 50%;
-  }
-
-.days-data {
-    display: grid;
-    place-items: center;
-}
-
-.days {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 1400px;
-}
-
-  .day {
-    content: "";
-    font-size: 40px;
-    color: var(--fg);
-  }
-
-.reserved {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #3D643F;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.arrow {
-    content: "";
-}  
-
-.reserved-dates {
-    position: absolute;
-    width: 232px;
-    height: 242px;
+.footer-title .line {
+    width: 30%;
+    height: 2px;
     background-color: var(--fg);
-    border-radius: 14px;
-    display: none;
 }
 
-.reserved-dates::after {
-    position: absolute;
-    bottom: 10px;
-    top: -12px;
-    height: 30px;
-    width: 30px;
-    content: "";
-    border-radius: 5px;
-    background: var(--fg);
-    transform: translateX(-50%) rotate(45deg);
+.footer-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    padding-bottom: 120px;
+    border-bottom: var(--fg) 2px solid;
+    flex-wrap: wrap;
 }
 
-footer {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border-top: var(--fg) 2px solid;
-    border-right: var(--fg) 2px solid;
-}
-
-footer .logo {
-    padding-top: 20px;
+.footer-main h2 {
     color: var(--fg);
-    font-family: 'Poppins';
-    text-decoration: none;
+    font-family: Poppins;
+    font-weight: 200;
+    font-size: 35px;
 }
 
-footer a {
-    text-decoration: none;
+.insta {
+    width: 50px;
+    height: 50px;
+    background-image: url(./img/instagram.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.email {
+    width: 50px;
+    height: 50px;
+    background-image: url(./img/mail.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.flx {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1%;
+    transition: all 1s;
+}
+
+.phone {
+    width: 50px;
+    height: 50px;
+    background-image: url(./img/phone.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer-right {
+    width: 600px;
+}
+
+.footer-left {
+    display: grid;
+    align-items: left;
+}
+
+.copy {
+    font-family: Poppins;
     color: var(--fg);
+    font-weight: 200;
+    text-align: center;
 }
 
-header {
-    display: none;
-}
-
-.header {
-    display: none;
+.footer-main .flx:hover {
+    transform: translateX(10px);
 }
 
 @media only screen and (max-width: 1400px) {
@@ -919,6 +872,34 @@ header {
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+
+    .footer-title h1 {
+        font-size: 40px;
+    }
+
+    .footer-main h2 {
+        font-size: 20px;
+    }
+
+    .phone {
+        background-size: 60%;
+    }
+
+    .email {
+        background-size: 60%;
+    }
+
+    .insta {
+        background-size: 60%;
+    }
+
+    .copy {
+        font-size: 15px;
+    }
+
+    .copy span {
+        font-size: 15px;
     }
 }
 
