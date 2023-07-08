@@ -716,7 +716,7 @@ body {
         border-left: var(--fg) 1px solid;
         content: "";
         margin-top: 60px;
-        margin-left: 90px;
+        margin-left: 50px;
         box-sizing: border-box;
     }
     
