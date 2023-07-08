@@ -103,6 +103,10 @@ body {
     display: grid;
     place-items: center;
     width: 100%;
+    height: 795px;
+    background-image: url(./img/landing2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .landing img {
